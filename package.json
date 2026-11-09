@@ -1,0 +1,14 @@
+{
+  "name": "sync-canvas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A dependency-free realtime collaborative canvas with a hand-written OT engine.",
+  "license": "AGPL-3.0-or-later",
+  "author": "Jerome Young <jeromeyoung608@gmail.com>",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "test": "node tests/fuzz.mjs",
+    "chaos": "python3 chaos/fuzzer.py"
+  }
+}

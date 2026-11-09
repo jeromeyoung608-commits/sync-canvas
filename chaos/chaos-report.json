@@ -1,0 +1,1779 @@
+{
+  "schema": "sync-canvas/chaos-report@1",
+  "generatedAt": "2026-11-09T08:01:33.608Z",
+  "verdict": "PASS",
+  "summary": {
+    "clients": 50,
+    "converged": true,
+    "convergenceMs": 670,
+    "rev": 243,
+    "nodes": 73,
+    "uniqueDocHashes": 1,
+    "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+    "localOps": 237,
+    "outages": 53,
+    "reconnects": 53,
+    "hubHandoffs": 2,
+    "minOnline": 33,
+    "antiEntropyRounds": 0,
+    "hashCrossCheck": true,
+    "relay": {
+      "framesIn": 13539,
+      "framesOut": 176334,
+      "bytesOut": 81173654,
+      "broadcast": 3604,
+      "targeted": 9925,
+      "dropped": 10,
+      "badFrames": 0
+    }
+  },
+  "config": {
+    "clients": 50,
+    "room": "CHAOS1",
+    "chaosSeconds": 14.0,
+    "outageSeconds": [
+      2.8,
+      3.3
+    ],
+    "hubOutageSeconds": 10.5,
+    "seedNotes": 6,
+    "seed": 222794944,
+    "spamIntervalMs": 180,
+    "observers": [
+      "BOT-49",
+      "BOT-50"
+    ],
+    "transport": "websocket relay (passthrough, targeted sync-ops)",
+    "engine": "src/engine/SyncEngine.js (real replicas hosted by chaos/agent.mjs)",
+    "relay": "ws://127.0.0.1:65021"
+  },
+  "assertions": [
+    {
+      "name": "client-set-complete",
+      "pass": true,
+      "detail": "50/50 replicas reported"
+    },
+    {
+      "name": "all-clients-online",
+      "pass": true,
+      "detail": "50/50 online at snapshot time"
+    },
+    {
+      "name": "single-sequencer",
+      "pass": true,
+      "detail": "hub=BOT-01, expected=BOT-01"
+    },
+    {
+      "name": "revision-agreement",
+      "pass": true,
+      "detail": "rev=[243]"
+    },
+    {
+      "name": "document-hash-identical",
+      "pass": true,
+      "detail": "1 unique SHA-256 hash(es) over [73] nodes"
+    },
+    {
+      "name": "no-unacknowledged-work",
+      "pass": true,
+      "detail": "unacked=0, queued=0, inbox=0"
+    },
+    {
+      "name": "hash-cross-check",
+      "pass": true,
+      "detail": "Python SHA-256 matches the Node digest on every replica"
+    },
+    {
+      "name": "chaos-actually-happened",
+      "pass": true,
+      "detail": "53 outages, 53 reconnects, 237 local ops"
+    },
+    {
+      "name": "sequencer-handoff-exercised",
+      "pass": true,
+      "detail": "2 observed hub change(s)"
+    }
+  ],
+  "timeline": [
+    {
+      "event": "chaos-start",
+      "atMs": 0
+    },
+    {
+      "event": "outage",
+      "atMs": 0,
+      "site": "BOT-37",
+      "seconds": 3.17
+    },
+    {
+      "event": "outage",
+      "atMs": 0,
+      "site": "BOT-32",
+      "seconds": 3.29
+    },
+    {
+      "event": "outage",
+      "atMs": 0,
+      "site": "BOT-33",
+      "seconds": 3.3
+    },
+    {
+      "event": "outage",
+      "atMs": 980,
+      "site": "BOT-34",
+      "seconds": 2.81
+    },
+    {
+      "event": "outage",
+      "atMs": 980,
+      "site": "BOT-10",
+      "seconds": 2.84
+    },
+    {
+      "event": "outage",
+      "atMs": 980,
+      "site": "BOT-26",
+      "seconds": 3.11
+    },
+    {
+      "event": "outage",
+      "atMs": 2125,
+      "site": "BOT-13",
+      "seconds": 3.22
+    },
+    {
+      "event": "outage",
+      "atMs": 2126,
+      "site": "BOT-06",
+      "seconds": 3.07
+    },
+    {
+      "event": "outage",
+      "atMs": 2126,
+      "site": "BOT-47",
+      "seconds": 3.23
+    },
+    {
+      "event": "reconnect",
+      "atMs": 3174,
+      "site": "BOT-37"
+    },
+    {
+      "event": "outage",
+      "atMs": 3200,
+      "site": "BOT-23",
+      "seconds": 3.13
+    },
+    {
+      "event": "outage",
+      "atMs": 3200,
+      "site": "BOT-11",
+      "seconds": 3.01
+    },
+    {
+      "event": "outage",
+      "atMs": 3200,
+      "site": "BOT-16",
+      "seconds": 2.99
+    },
+    {
+      "event": "reconnect",
+      "atMs": 3286,
+      "site": "BOT-32"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 3297,
+      "site": "BOT-33"
+    },
+    {
+      "event": "hub-kill",
+      "atMs": 3602,
+      "site": "BOT-01",
+      "seconds": 10.5
+    },
+    {
+      "event": "outage",
+      "atMs": 3602,
+      "site": "BOT-01",
+      "seconds": 10.5
+    },
+    {
+      "event": "reconnect",
+      "atMs": 3795,
+      "site": "BOT-34"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 3833,
+      "site": "BOT-10"
+    },
+    {
+      "event": "outage",
+      "atMs": 4030,
+      "site": "BOT-05",
+      "seconds": 2.94
+    },
+    {
+      "event": "outage",
+      "atMs": 4030,
+      "site": "BOT-29",
+      "seconds": 3.26
+    },
+    {
+      "event": "outage",
+      "atMs": 4030,
+      "site": "BOT-43",
+      "seconds": 3.13
+    },
+    {
+      "event": "outage",
+      "atMs": 4030,
+      "site": "BOT-10",
+      "seconds": 2.92
+    },
+    {
+      "event": "reconnect",
+      "atMs": 4089,
+      "site": "BOT-26"
+    },
+    {
+      "event": "outage",
+      "atMs": 5051,
+      "site": "BOT-04",
+      "seconds": 3.26
+    },
+    {
+      "event": "outage",
+      "atMs": 5051,
+      "site": "BOT-37",
+      "seconds": 2.97
+    },
+    {
+      "event": "outage",
+      "atMs": 5051,
+      "site": "BOT-18",
+      "seconds": 2.99
+    },
+    {
+      "event": "outage",
+      "atMs": 5052,
+      "site": "BOT-28",
+      "seconds": 3.11
+    },
+    {
+      "event": "reconnect",
+      "atMs": 5199,
+      "site": "BOT-06"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 5344,
+      "site": "BOT-13"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 5360,
+      "site": "BOT-47"
+    },
+    {
+      "event": "outage",
+      "atMs": 6007,
+      "site": "BOT-27",
+      "seconds": 2.93
+    },
+    {
+      "event": "outage",
+      "atMs": 6007,
+      "site": "BOT-47",
+      "seconds": 2.94
+    },
+    {
+      "event": "outage",
+      "atMs": 6007,
+      "site": "BOT-45",
+      "seconds": 2.8
+    },
+    {
+      "event": "outage",
+      "atMs": 6007,
+      "site": "BOT-12",
+      "seconds": 3.24
+    },
+    {
+      "event": "outage",
+      "atMs": 6007,
+      "site": "BOT-41",
+      "seconds": 2.91
+    },
+    {
+      "event": "reconnect",
+      "atMs": 6194,
+      "site": "BOT-16"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 6212,
+      "site": "BOT-11"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 6337,
+      "site": "BOT-23"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 6956,
+      "site": "BOT-10"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 6970,
+      "site": "BOT-05"
+    },
+    {
+      "event": "outage",
+      "atMs": 7018,
+      "site": "BOT-39",
+      "seconds": 2.84
+    },
+    {
+      "event": "outage",
+      "atMs": 7018,
+      "site": "BOT-22",
+      "seconds": 3.02
+    },
+    {
+      "event": "outage",
+      "atMs": 7018,
+      "site": "BOT-44",
+      "seconds": 2.9
+    },
+    {
+      "event": "reconnect",
+      "atMs": 7157,
+      "site": "BOT-43"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 7288,
+      "site": "BOT-29"
+    },
+    {
+      "event": "outage",
+      "atMs": 7944,
+      "site": "BOT-38",
+      "seconds": 3.12
+    },
+    {
+      "event": "outage",
+      "atMs": 7945,
+      "site": "BOT-36",
+      "seconds": 3.19
+    },
+    {
+      "event": "outage",
+      "atMs": 7945,
+      "site": "BOT-17",
+      "seconds": 3.29
+    },
+    {
+      "event": "outage",
+      "atMs": 7946,
+      "site": "BOT-15",
+      "seconds": 3.12
+    },
+    {
+      "event": "reconnect",
+      "atMs": 8027,
+      "site": "BOT-37"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 8042,
+      "site": "BOT-18"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 8161,
+      "site": "BOT-28"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 8314,
+      "site": "BOT-04"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 8811,
+      "site": "BOT-45"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 8916,
+      "site": "BOT-41"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 8947,
+      "site": "BOT-27"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 8982,
+      "site": "BOT-47"
+    },
+    {
+      "event": "outage",
+      "atMs": 9078,
+      "site": "BOT-24",
+      "seconds": 3.0
+    },
+    {
+      "event": "outage",
+      "atMs": 9078,
+      "site": "BOT-11",
+      "seconds": 3.0
+    },
+    {
+      "event": "outage",
+      "atMs": 9078,
+      "site": "BOT-09",
+      "seconds": 3.16
+    },
+    {
+      "event": "reconnect",
+      "atMs": 9250,
+      "site": "BOT-12"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 9857,
+      "site": "BOT-39"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 9919,
+      "site": "BOT-44"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 10043,
+      "site": "BOT-22"
+    },
+    {
+      "event": "outage",
+      "atMs": 10116,
+      "site": "BOT-37",
+      "seconds": 2.92
+    },
+    {
+      "event": "outage",
+      "atMs": 10117,
+      "site": "BOT-41",
+      "seconds": 2.84
+    },
+    {
+      "event": "outage",
+      "atMs": 10117,
+      "site": "BOT-20",
+      "seconds": 3.02
+    },
+    {
+      "event": "outage",
+      "atMs": 10117,
+      "site": "BOT-39",
+      "seconds": 2.85
+    },
+    {
+      "event": "outage",
+      "atMs": 10995,
+      "site": "BOT-25",
+      "seconds": 3.06
+    },
+    {
+      "event": "outage",
+      "atMs": 10996,
+      "site": "BOT-26",
+      "seconds": 2.89
+    },
+    {
+      "event": "outage",
+      "atMs": 10996,
+      "site": "BOT-30",
+      "seconds": 2.82
+    },
+    {
+      "event": "outage",
+      "atMs": 10996,
+      "site": "BOT-12",
+      "seconds": 2.81
+    },
+    {
+      "event": "reconnect",
+      "atMs": 11065,
+      "site": "BOT-15"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 11067,
+      "site": "BOT-38"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 11140,
+      "site": "BOT-36"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 11236,
+      "site": "BOT-17"
+    },
+    {
+      "event": "hub-handoff",
+      "atMs": 11725,
+      "site": "BOT-02"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 12077,
+      "site": "BOT-11"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 12080,
+      "site": "BOT-24"
+    },
+    {
+      "event": "outage",
+      "atMs": 12164,
+      "site": "BOT-43",
+      "seconds": 2.84
+    },
+    {
+      "event": "outage",
+      "atMs": 12164,
+      "site": "BOT-42",
+      "seconds": 3.0
+    },
+    {
+      "event": "outage",
+      "atMs": 12164,
+      "site": "BOT-10",
+      "seconds": 3.06
+    },
+    {
+      "event": "outage",
+      "atMs": 12164,
+      "site": "BOT-19",
+      "seconds": 3.18
+    },
+    {
+      "event": "outage",
+      "atMs": 12164,
+      "site": "BOT-17",
+      "seconds": 2.9
+    },
+    {
+      "event": "reconnect",
+      "atMs": 12238,
+      "site": "BOT-09"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 12955,
+      "site": "BOT-41"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 12964,
+      "site": "BOT-39"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 13062,
+      "site": "BOT-37"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 13138,
+      "site": "BOT-20"
+    },
+    {
+      "event": "outage",
+      "atMs": 13177,
+      "site": "BOT-04",
+      "seconds": 2.85
+    },
+    {
+      "event": "outage",
+      "atMs": 13177,
+      "site": "BOT-45",
+      "seconds": 3.01
+    },
+    {
+      "event": "outage",
+      "atMs": 13177,
+      "site": "BOT-46",
+      "seconds": 3.29
+    },
+    {
+      "event": "outage",
+      "atMs": 13177,
+      "site": "BOT-37",
+      "seconds": 3.07
+    },
+    {
+      "event": "reconnect",
+      "atMs": 13804,
+      "site": "BOT-12"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 13811,
+      "site": "BOT-30"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 13914,
+      "site": "BOT-26"
+    },
+    {
+      "event": "chaos-end",
+      "atMs": 14001
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14052,
+      "site": "BOT-25"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14107,
+      "site": "BOT-01"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14201,
+      "site": "BOT-17"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14201,
+      "site": "BOT-42"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14201,
+      "site": "BOT-43"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14201,
+      "site": "BOT-04"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14201,
+      "site": "BOT-46"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14201,
+      "site": "BOT-45"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14201,
+      "site": "BOT-37"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14201,
+      "site": "BOT-19"
+    },
+    {
+      "event": "reconnect",
+      "atMs": 14201,
+      "site": "BOT-10"
+    },
+    {
+      "event": "heal",
+      "atMs": 14202
+    },
+    {
+      "event": "verify-start",
+      "atMs": 14202
+    },
+    {
+      "event": "hub-handoff",
+      "atMs": 14597,
+      "site": "BOT-01"
+    },
+    {
+      "event": "converged",
+      "atMs": 14871,
+      "ms": 670
+    }
+  ],
+  "clients": [
+    {
+      "site": "BOT-01",
+      "online": true,
+      "role": "hub",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 0,
+      "received": 169,
+      "sequenced": 74,
+      "dropped": 0,
+      "hubTerms": 3,
+      "localOps": 0,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-02",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 1,
+      "received": 74,
+      "sequenced": 169,
+      "dropped": 2,
+      "hubTerms": 2,
+      "localOps": 1,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-03",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 17,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 10,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-04",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 5,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 5,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-05",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 0,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 0,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-06",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 15,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 9,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-07",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 9,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 6,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-08",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 8,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 5,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-09",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 4,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 4,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-10",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 10,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 6,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-11",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 8,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 4,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-12",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 0,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 0,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-13",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 8,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 4,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-14",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 0,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 0,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-15",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 14,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 11,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-16",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 3,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 2,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-17",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 7,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 4,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-18",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 11,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 6,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-19",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-02",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 14,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 8,
+      "peers": 48,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-20",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 0,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 0,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-21",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 9,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 9,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-22",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 0,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 0,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-23",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 3,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 3,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-24",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 15,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 13,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-25",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 4,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 2,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-26",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 4,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 2,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-27",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 17,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 10,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-28",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 5,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 4,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-29",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 11,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 7,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-30",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 6,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 2,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-31",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 36,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 23,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-32",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 0,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 0,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-33",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 6,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 5,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-34",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 16,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 8,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-35",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 10,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 7,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-36",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 3,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 3,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-37",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 0,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 0,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-38",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 10,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 8,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-39",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 10,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 6,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-40",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 6,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 5,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-41",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 0,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 0,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-42",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-02",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 10,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 6,
+      "peers": 48,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-43",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 0,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 0,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-44",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 8,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 8,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-45",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 1,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 1,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-46",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-02",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 11,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 7,
+      "peers": 48,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-47",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 2,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 1,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-48",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 1,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 1,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-49",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 13,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 8,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    },
+    {
+      "site": "BOT-50",
+      "online": true,
+      "role": "client",
+      "hub": "BOT-01",
+      "rev": 243,
+      "nodes": 73,
+      "unacked": 0,
+      "queued": 0,
+      "inbox": 0,
+      "sent": 6,
+      "received": 243,
+      "sequenced": 0,
+      "dropped": 0,
+      "hubTerms": 1,
+      "localOps": 3,
+      "peers": 49,
+      "docHash": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c",
+      "viewNodes": 73,
+      "docHashPython": "b944414ef587f2202080e44346cf5d731a9c7223b4a72e4b7c37a00ce6805e9c"
+    }
+  ],
+  "firstDivergence": null,
+  "environment": {
+    "python": "3.14.7",
+    "node": "v26.0.0",
+    "websockets": "17.4",
+    "platform": "macOS-15.6.1-arm64-arm-64bit-Mach-O",
+    "cwd": "/Users/yangjie/Documents/big-project/sync-canvas"
+  }
+}
